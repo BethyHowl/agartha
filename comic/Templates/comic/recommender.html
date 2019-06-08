@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta charset="UTF-8">
+      <link rel="stylesheet" href="{% static 'comic/recommender_style.css' %}">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+      <title>Comic Recommender</title>
+      <meta charset = "UTF-8" />
+    <style >
+    body {
+      background-color: #164141;
+      background-image: url("{% static 'comic/images/app_rz.png' %}");
+    }
+  </style>
+  <div class="container">
+    <div class="logo_div">
+      <a href="{% url 'comic-home' %}"><img src="{% static 'comic/images/app_logo.jpg' %}" alt="" class = "logo"></a>
+    </div>
+    <div>
+      <ul>
+       <li><a href="{% url 'comic-home' %}">Home</a></li>
+       <li><a href="{% url 'comic-search' %}">Search</a></li>
+       <li><a href="{% url 'comic-classifier' %}">Classifier</a></li>
+       <li><a class = "active" href="{% url 'comic-recommender' %}">Recommender</a></li>
+      </ul>
+    </div>
+  </div>
+  </head>
+  <body>
+    <div class="wrapper">
+      <input type="text" class="input" placeholder="Search Characters...">
+    <div class="searchbtn"><i class="fas fa-search"></i></div>
+  </body>
+</html>

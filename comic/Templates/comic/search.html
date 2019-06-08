@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Comic Search</title>
+      <link rel="stylesheet" href="{% static 'comic/search_style.css' %}">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+      <meta charset = "UTF-8" />
+  <style >
+    body {
+        background-color: #164141;
+        background-image: url("{% static 'comic/images/app_rz.png' %}");
+        overflow: scroll;
+      }
+  </style>
+  <div>
+    <div class="logo_div">
+      <a href="{% url 'comic-home' %}"><img src="{% static 'comic/images/app_logo.jpg' %}" alt="" class = "logo"></a>
+    </div>
+    <div>
+      <ul>
+       <li><a href="{% url 'comic-home' %}">Home</a></li>
+       <li><a class = "active" href="{% url 'comic-search' %}">Search</a></li>
+       <li><a href="{% url 'comic-classifier' %}">Classifier</a></li>
+       <li><a href="{% url 'comic-recommender' %}">Recommender</a></li>
+      </ul>
+    </div>
+  </div>
+  </head>
+  <body>
+      <form class="wrapper" action="" method = "GET">
+        <input type="text" name = "q" class="input" placeholder="Search Comics..." value="{{ request.GET.q  }}"/>
+        <button type="submit" class = "searchbtn" style="Border: none;"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+    <div class="bkg">
+      <div class="container">
+        {% for comic in comics %}
+          <h1>{{ comic.title }}</h1>
+          <p>{{ comic.desc }}</p>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
